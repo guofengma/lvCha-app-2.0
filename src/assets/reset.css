@@ -1,0 +1,114 @@
+html, body, header, section, nav, ul, ol, li, div, p, form, h1, h2, h3, h4, h5, h6, span, a, img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+  
+  html {
+    -webkit-text-size-adjust: none;   /*为了兼容chrome浏览器字体最小为12px的hack*/
+    font-size: calc(100vw/3.75);
+  }
+  
+  body {
+    font-family: Arial, sans-serif, microsoft Yahei;
+  }
+
+  html,body{
+      height: 100%;
+  }
+  
+  ul, ol, li {
+    list-style: none;
+  }
+  
+  img {
+    border: 0;
+  }
+  
+  a,a:link,a:visited,a:hover,a:active {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  
+  .clearfix:before,.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    overflow: hidden;
+  }
+  
+  .none{
+    display: none;
+  }
+  
+.flex{
+  display: flex;
+}
+
+.mask{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+  
+.tc{
+  text-align: center;
+}
+
+/* 弹框盒子 */
+.modal-box{
+    position: fixed;
+    left: 0.4rem;
+    top: 0.9rem;
+    width: 2.95rem;
+    box-sizing: border-box;
+    border: 2px solid #eff3bf;
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+    background: #69B603;
+    background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#69B603), to(#a5ea3f), color-stop(0.0,#64bb0e));
+    font-size: 12px;
+  }
+
+/* 菜单按钮 */
+.menu-btn{
+  position: absolute;
+  width: 0.315rem;
+  right: 0.2rem;
+  top: 0.2rem;
+  cursor: pointer;
+}
+  
+.yellow{
+  color: #fdbf46;
+}
+
+/* 弹框左上角小绿人图标 */
+.xlr-icon{
+  position: absolute;
+  left: -0.21rem;
+  top: -0.6rem;
+  width: 0.82rem;
+}
+  
+
+/* 暂无数据 */
+.noData{
+  font-size: 18px;
+  text-align: center;
+}
+
+/* 红色文字提示 */
+.red{
+  font-size: 12px;
+  color:red;
+  box-sizing: border-box;
+  padding-left: 0.02rem;
+}
