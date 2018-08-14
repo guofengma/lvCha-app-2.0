@@ -1,5 +1,8 @@
 
 // const host = 'httP://192.168.1.166:8080'
+// const host = 'http://ls366.tunnel.qydev.com'
+// const host2 = 'http://ls366.tunnel.qydev.com'
+
 // const host2 = 'http://shidewei.yicucheng.com'
 
 const host = ''

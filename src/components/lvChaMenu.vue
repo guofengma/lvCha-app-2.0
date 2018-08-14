@@ -12,6 +12,10 @@
             >
             <!-- 左上角小绿人图标 -->
             <img src="../assets/images/xlr.png" alt="" class="xlr-icon">
+             <!-- 左树叶 -->
+            <img src="../assets/images/leaf-l.png" alt="" class="leaf-icon leaf-l">
+            <!-- 右树叶 -->
+            <img src="../assets/images/leaf-r.png" alt="" class="leaf-icon leaf-r">
         </div>
     </div>
 </template>
@@ -90,7 +94,7 @@ export default {
 }
 
 .menu-box{
-    top: 1.43rem;
+    /* top: 1.43rem; */
     padding-top: 0.5rem;
     padding-bottom: 0.4rem;
 }
@@ -107,5 +111,8 @@ export default {
     top: -0.6rem;
     width: 0.82rem;
 }
-
+.leaf-l{
+    left: -0.15rem;
+    bottom: 30%;
+}
 </style>

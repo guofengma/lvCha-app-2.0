@@ -23,7 +23,7 @@
                             <span class="time">{{item.createTime.split(' ')[0]}}</span>
                             <span class="prize-handle-btn" v-if="item.bak1" @click="getTxdmlb(item)">立即领取</span>
                             <span class="prize-handle-btn" v-if="item.prizeType == 'BZ'" @click="getWallpaper(item)">立即查看</span>
-                            <span class="prize-handle-btn" v-if="item.prizeType == 'SW'" @click="getSw(item)">立即领取</span>
+                            <span class="prize-handle-btn" v-if="item.prizeType == 'SW'" @click="getSw(item)">{{is_filled_address == '1'?'立即查看':'完善地址'}}</span>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <!-- 弹框 -->
-        <modal v-if="showModal"></modal>
+        <modal v-if="showModal" @closeModal="closeModal"></modal>
         <!-- 菜单按钮 -->
         <img src="../assets/images/menu.png" alt="" class="menu-btn" @click="toggleMenu">
          <!-- 菜单组件 -->
@@ -50,6 +50,7 @@
             :modalInfo="modalInfo"
             @closeUserInfoModal='closeUserInfoModal' 
             @getPrizeList="getPrizeList"
+            @openModal="openModal"
         ></userInfoModal>
         <!-- 查看壁纸弹框 -->
         <wallpaperModal 
@@ -126,6 +127,12 @@ export default {
         //关闭菜单弹框
         CloseMenuModal(){
             this.showMenu = false
+        },
+        closeModal(){
+            this.showModal = false
+        },
+        openModal(){
+            this.showModal = true
         },
         navTogrzx(){
             console.log(this.$router)
@@ -225,20 +232,22 @@ export default {
         min-height: 100%;
     }
     .head{
-        /* height: 1.125rem; */
+        height: 0.96rem;
         font-size: 0;
         position: relative;
+        overflow: hidden;
     }
     .head-img{
         width: 100%;
     }
     .hlz{
         position: absolute;
-        color: #0a7230;
-        font-size: 18px;
+        color: #007e41;
+        font-size: 16px;
         bottom: 0.1rem;
         left: 0.1rem;
         font-weight: 600;
+        margin-left: 0.1rem;
     }
     .phone-box{
         height: 0.36rem;
@@ -262,7 +271,7 @@ export default {
         font-size: 0;
         padding-bottom: 0.2rem;
         background-color: #4ca537;
-        min-height:calc(100vh - 1.485rem);
+        min-height:calc(100vh - 1.32rem);
         box-sizing: border-box;
     }
 

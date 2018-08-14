@@ -66,7 +66,7 @@ html, body, header, section, nav, ul, ol, li, div, p, form, h1, h2, h3, h4, h5, 
 .modal-box{
     position: fixed;
     left: 0.4rem;
-    top: 0.9rem;
+    /* top: 0.9rem; */
     width: 2.95rem;
     box-sizing: border-box;
     border: 2px solid #eff3bf;
@@ -75,6 +75,9 @@ html, body, header, section, nav, ul, ol, li, div, p, form, h1, h2, h3, h4, h5, 
     background: #69B603;
     background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#69B603), to(#a5ea3f), color-stop(0.0,#64bb0e));
     font-size: 12px;
+
+    top: 50%;
+    transform: translateY(-50%);
   }
 
 /* 菜单按钮 */
@@ -111,4 +114,27 @@ html, body, header, section, nav, ul, ol, li, div, p, form, h1, h2, h3, h4, h5, 
   color:red;
   box-sizing: border-box;
   padding-left: 0.02rem;
+}
+
+/* 弹框树叶 */
+.leaf-icon{
+  position: absolute;
+}
+
+.leaf-l{
+  width: 0.25rem;
+}
+
+.leaf-r{
+  width: 0.325rem;
+}
+
+.leaf-l-01{
+  width: 0.4rem;
+}
+
+
+.leaf-r{
+  right: -0.15rem;
+  bottom: 40%;
 }

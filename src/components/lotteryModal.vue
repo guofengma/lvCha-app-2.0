@@ -45,6 +45,10 @@
             </div>
             <!-- 左上角小绿人图标 -->
             <img src="../assets/images/xlr.png" alt="" class="xlr-icon">
+            <!-- 左树叶 -->
+            <img src="../assets/images/leaf-l.png" alt="" class="leaf-icon leaf-l">
+            <!-- 右树叶 -->
+            <img src="../assets/images/leaf-r.png" alt="" class="leaf-icon leaf-r">
         </div>
     </div>
 </template>
@@ -121,7 +125,7 @@ export default {
 }
 /* 内容区块下方提示文字 */
 .modal-hint{
-    font-size: 14px;
+    text-align: center;
     color: #fff;
 }
 /* 底部按钮 */
@@ -222,6 +226,11 @@ export default {
     color: #fff;
     font-size: 30px;
     font-weight: 600;
+}
+
+.leaf-l{
+    left: -0.125rem;
+    bottom: 20%;
 }
 </style>
 

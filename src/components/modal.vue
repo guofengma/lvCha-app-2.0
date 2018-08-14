@@ -1,34 +1,27 @@
 <template>
     <div class="modal-com">
         <!-- 弹框 -->
-        <!-- 标题 -->
-        <div class="modal-tit">{{title}}</div>
-        <!-- 内容区域 -->
-        <div class="modal-con-box">
-            <div class="modal-con none">
-                <!-- <div class="con-word">恭喜您获得500活力值</div> -->
-                <div class="no-hlz">亲，活力值不足，无法兑换该奖品</div>
-            </div>
-            <!-- 绑定手机号 -->
-            <div class="modal-con" v-if="type == 'bindPhone'">
-                <div class="form-controller">
-                    <input type="number" class="form-input" placeholder="请输入手机号">
-                </div>
-                <div class="form-controller">
-                    <input type="text" class="form-input" placeholder="请输入验证码">
-                    <img src="../assets/images/erweima.jpg" alt="" class="code-img">
+        <div class="mask"></div>
+        <div class="modal-box">
+            <!-- 标题 -->
+            <div class="modal-tit">温馨提示</div>
+            <!-- 内容区域 -->
+            <div class="modal-con-box">
+                <div class="modal-con">
+                    <!-- <div class="con-word">恭喜您获得500活力值</div> -->
+                    <div class="no-hlz">请输入完整信息</div>
                 </div>
             </div>
-        </div>
-        <!-- <div class="modal-hint">立即前往“个人中心”查看奖品</div> -->
-        <div class="modal-hint" v-if="type == 'bindPhone'">
-            <p>请填写真实手机号码，以便进行奖品发放</p>
-            <p><input type="checkbox" name="" id="" v-model="checked">我同意<span class="yellow">活动规则</span></p>
-        </div>
-        <!-- 底部按钮盒子 -->
-        <div class="modal-btn none">
-            <img src="../assets/images/modal-btn-bg.png" alt="" class="modal-btn-bg">
-            <span class="modal-btn-word">关闭</span>
+            <!-- 底部按钮盒子 -->
+            <div class="modal-btn" @click="closeModal">
+                <img src="../assets/images/modal-btn-bg.png" alt="" class="modal-btn-bg">
+                <span class="modal-btn-word">关闭</span>
+            </div>
+            <img src="../assets/images/xlr.png" alt="" class="xlr-icon">
+            <!-- 左树叶 -->
+            <img src="../assets/images/leaf-l.png" alt="" class="leaf-icon leaf-l">
+            <!-- 右树叶 -->
+            <img src="../assets/images/leaf-r.png" alt="" class="leaf-icon leaf-r">
         </div>
     </div>
 </template>
@@ -38,14 +31,17 @@ export default {
     props:['title','type'],
     data(){
         return{
-            // title:"恭喜您获得"
-            checked:true
         }
-    },  
+    },
+    methods:{
+        closeModal(){
+            this.$emit('closeModal')
+        },
+    }
 }
 </script>
-<style>
-.modal-com{
+<style scoped>
+/* .modal-com{
     font-size: 12px;
     width: 2.95rem;
     box-sizing: border-box;
@@ -54,10 +50,15 @@ export default {
     top: 0.9rem;
     background: #69B603;
     background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#69B603), to(#A1ED40), color-stop(0.0,#336600));
-    /* height: 1rem; */
     border: 0.02rem solid #f2f1b4;
     border-radius: 0.1rem;
     padding: 0.2rem;
+} */
+.mask{
+    z-index: 3;
+}
+.modal-box{
+    z-index: 4;
 }
 /* 标题 */
 .modal-tit{

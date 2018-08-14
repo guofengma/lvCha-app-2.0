@@ -1,32 +1,42 @@
 <template>
     <div class="modal-com">
-        <!-- 弹框 -->
-        <!-- 标题 -->
-        <div class="modal-tit">{{modalInfo.title}}</div>
-        <!-- 内容区域 -->
-        <div class="modal-con-box">
-            <div class="modal-con ">
-                <!-- <div class="con-word">恭喜您获得500活力值</div> -->
-              <div class="no-hlz" v-if="modalInfo.type == 'sureDh'">确定消耗{{modalInfo.num}}兑换该奖品吗？</div>
-              <div class="no-hlz" v-if="modalInfo.type == 'dhsuc' || modalInfo.type == 'ts'">{{modalInfo.content}}</div>
+        <div class="mask"></div>
+        <!-- 兑换弹框 确认兑换 -->
+        <div class="modal-box">
+            <!-- 标题 -->
+            <div class="modal-tit">{{modalInfo.title}}</div>
+            <!-- 内容区域 -->
+            <div class="modal-con-box">
+                <div class="modal-con ">
+                    <!-- <div class="con-word">恭喜您获得500活力值</div> -->
+                <div class="no-hlz" v-if="modalInfo.type == 'sureDh'">确定消耗{{modalInfo.num}}兑换该奖品吗？</div>
+                <div class="no-hlz" v-if="modalInfo.type == 'dhsuc' || modalInfo.type == 'ts'">{{modalInfo.content}}</div>
+                </div>
+            
             </div>
-           
-        </div>
-       <div class="modal-hint" v-if="modalInfo.type == 'dhsuc'">
-               奖品已发放至个人中心，请至个人中心完善资料
-        </div>
-        <div class="modal-hint" v-if="modalInfo.type == 'dherr'">
-               {{modalInfo.content}}
-        </div>
-      <!-- 底部按钮盒子 -->
-      <div class="modal-btn" @click="closeDhModal" v-if="modalInfo.type == 'ts'">
-        <img src="../assets/images/modal-btn-bg.png" alt="" class="modal-btn-bg">
-        <span class="modal-btn-word">确定</span>
-      </div>
-        <!-- 底部按钮盒子 -->
-        <div class="btns-box" v-else>
-            <div class="btn gray-btn" @click="closeDhModal">取消</div>
-            <div class="btn yellow-btn" @click="goodsExchange(modalInfo)">确定</div>
+            <div class="modal-hint" v-if="modalInfo.type == 'dhsuc'">
+                    奖品已发放至个人中心，请至个人中心完善资料
+                </div>
+                <div class="modal-hint" v-if="modalInfo.type == 'dherr'">
+                    {{modalInfo.content}}
+                </div>
+            <!-- 底部按钮盒子 -->
+            <div class="modal-btn" @click="closeDhModal" v-if="modalInfo.type == 'ts'">
+                <img src="../assets/images/modal-btn-bg.png" alt="" class="modal-btn-bg">
+                <span class="modal-btn-word">确定</span>
+            </div>
+            <!-- 底部按钮盒子 -->
+            <div class="btns-box" v-else>
+                <div class="btn gray-btn" @click="closeDhModal">取消</div>
+                <div class="btn yellow-btn" @click="goodsExchange(modalInfo)">确定</div>
+            </div>
+
+            <!-- 左上角小绿人图标 -->
+            <img src="../assets/images/xlr.png" alt="" class="xlr-icon">
+            <!-- 左树叶 -->
+            <img src="../assets/images/leaf-l.png" alt="" class="leaf-icon leaf-l">
+            <!-- 右树叶 -->
+            <img src="../assets/images/leaf-r.png" alt="" class="leaf-icon leaf-r">
         </div>
        
     </div>
@@ -52,8 +62,8 @@ export default {
 }
 </script>
 <style>
-.modal-com{
-    font-size: 12px;
+.modal-box{
+    /* font-size: 12px;
     width: 2.95rem;
     box-sizing: border-box;
     position: fixed;
@@ -61,10 +71,9 @@ export default {
     top: 0.9rem;
     background: #69B603;
     background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#69B603), to(#A1ED40), color-stop(0.0,#336600));
-    /* height: 1rem; */
     border: 0.02rem solid #f2f1b4;
     border-radius: 0.1rem;
-    padding: 0.2rem;
+    padding: 0.2rem; */
 }
 /* 标题 */
 .modal-tit{

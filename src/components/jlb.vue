@@ -20,10 +20,12 @@
         </div>
         <!-- 内容区域 商品列表 -->
         <div class="jlb-con">
+          <!-- 大树叶 -->
+          <img src="../assets/images/leaf-big.png" alt="" class="leaf-big">
             <div class="jlb-list" v-if="currNvaIndex == 0">
                 <div class="jlb-item" v-for="(e,i) in perimeterList" :key="i">
                     <div class="img-box">
-                        <img src="../assets/images/jp.jpg" alt="" class="jlb-img">
+                        <img v-bind:src="e.imageUrl" alt="" class="jlb-img">
                     </div>
                     <div class="item-info">
                         <p class="item-name">{{e.prizeName}}</p>
@@ -36,7 +38,7 @@
             <div class="jlb-list bz-list" v-if="currNvaIndex == 1">
                 <div class="half-item" v-for="(e,i) in wallpaperList" :key="i">
                     <div class="pro-img-box">
-                        <img src="../assets/images/jp.jpg" alt="" class="pro-img">
+                        <img v-bind:src="e.imageUrl" alt="" class="pro-img">
                     </div>
                     <div class="pro-info">
                         <p class="pro-name">{{e.prizeName}}</p>
@@ -66,11 +68,12 @@
         @closeDhModal="closeDhModal"
         @goodsExchange="goodsExchange"
         ></dhModal>
-        <dhModal 
+
+        <dhModalT 
         v-if="showDhmodalT" 
         :modalInfo="modalInfo" 
         @closeDhModalT="closeDhModalT"
-        ></dhModal>
+        ></dhModalT>
     </div>
 </template>
 <script>
@@ -107,7 +110,7 @@ export default {
           name: "壁纸专区"
         }
       ],
-      currNvaIndex: 1,
+      currNvaIndex: 0,
       //周边专区
       perimeterList: [
         {
@@ -326,9 +329,9 @@ export default {
   height: 2.14rem;
   margin-top: -0.51rem;
   box-sizing: border-box;
-  padding: 1.5rem 0.1rem 0 0.1rem;
+  padding: 1.5rem 0.18rem 0 0.18rem;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 /* 头部分类按钮 */
@@ -367,7 +370,17 @@ export default {
   padding-bottom: 0.06rem;
   border-bottom-left-radius: 0.08rem;
   border-bottom-right-radius: 0.08rem;
+  position: relative;
 }
+/* 大树叶 */
+.leaf-big{
+  position: absolute;
+  right: -0.215rem;
+  top: 50%;
+  width: 0.43rem;
+}
+
+/* 列表 */
 .jlb-list {
   background: #92d92c;
   padding-bottom: 0.2rem;
@@ -507,6 +520,9 @@ export default {
   font-size: 12px;
   transform: scale(0.9);
   height:0.29rem;
+  padding: 0 0.02rem;
+  text-align: center;
+  margin-bottom: 0.02rem;
 }
 
 .dh-btn {

@@ -4,6 +4,10 @@
         <!-- 弹框  输入信息-->
         <div class="userinfo-modal-box"  v-if="modalInfo.type == 'input'">
           <img src="../assets/images/xlr.png" alt="" class="xlr-icon">
+          <!-- 左树叶 -->
+            <img src="../assets/images/leaf-l.png" alt="" class="leaf-icon leaf-l">
+            <!-- 右树叶 -->
+            <img src="../assets/images/leaf-r.png" alt="" class="leaf-icon leaf-r">
           <!-- 内容区域 -->
           <div class="modal-con-box">
               <!-- 完善个人信息 -->
@@ -33,7 +37,7 @@
           </div>
           <!-- <div class="modal-hint">立即前往“个人中心”查看奖品</div> -->
           <div class="modal-hint">
-              资料一经提交无法修改，主办方将核实资料和真实姓名，10个工作日发放奖品，有疑问请拨打活动客服热线：400-6685-990
+              资料一经提交无法修改，主办方将核实资料和真实姓名，活动结束后统一发放奖品，有疑问请拨打活动客服热线：400-6685-990
           </div>
           <!-- 底部按钮盒子 -->
           <div class="modal-btn" @click="saveUserAddrInfo">
@@ -75,7 +79,7 @@
           </div>
           <!-- <div class="modal-hint">立即前往“个人中心”查看奖品</div> -->
           <div class="modal-hint">
-            信息已提交，审核通过后10个工作日发放奖品，请耐心等待。
+            信息已提交，活动结束后统一发放奖品，请耐心等待。
           </div>
           <!-- 底部按钮盒子 -->
           <div class="modal-btn" @click="closeUserInfoModal">
@@ -135,7 +139,7 @@ export default {
       city == '' || city == null || city == undefined || 
       area == '' || area == null || area == undefined ||
       site == '' || site == null || site == undefined){
-        alert("请输入完整信息")
+        this.$emit('openModal')
         return
       }
       let reqData = {
@@ -193,14 +197,14 @@ export default {
   /* height: 1rem; */
   border: 0.02rem solid #f2f1b4;
   border-radius: 0.1rem;
-  padding: 0.2rem;
+  padding: 0.1rem;
 }
 /* 标题 */
 .modal-tit {
-  color: #218b60;
+  color: #358d68;
   font-size: 16px;
   text-align: center;
-  font-weight: 600;
+  /* font-weight: 600; */
   height: 0.4rem;
   line-height: 0.4rem;
 }
@@ -310,6 +314,7 @@ export default {
 .distpicker-address-wrapper {
   display: flex;
   margin-bottom: 0.2rem;
+  justify-content: space-around;
 }
 .distpicker-address-wrapper select {
   height: 0.3rem !important;
@@ -326,6 +331,11 @@ export default {
 .distpicker-address-wrapper select option {
   width: 100%;
   font-size: 12px;
+}
+
+.leaf-l{
+  left: -0.125rem;
+  top: 40%;
 }
 </style>
 

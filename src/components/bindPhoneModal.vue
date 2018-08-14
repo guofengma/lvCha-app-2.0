@@ -49,6 +49,10 @@
             </div>
             <!-- 左上角小绿人图标 -->
             <img src="../assets/images/xlr.png" alt="" class="xlr-icon">
+            <!-- 左树叶 -->
+            <img src="../assets/images/leaf-l-01.png" alt="" class="leaf-icon leaf-l-01">
+            <!-- 右树叶 -->
+            <img src="../assets/images/leaf-r.png" alt="" class="leaf-icon leaf-r">
         </div>
         
     </div>
@@ -82,6 +86,8 @@ export default {
         },
         // 绑定手机号
         bindPhone(){
+            this.phoneHintWord = ""
+            this.codeHintWord = ""
             var pattern = /(^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$)|(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
             let checked = this.checked; 
             let reqData={
@@ -174,7 +180,7 @@ export default {
 /* 内容区块下方提示文字 */
 .modal-hint{
     font-size: 12px;
-    color: #fff;
+    color: #34a32d;
 }
 /* 底部按钮 */
 .modal-btn{
@@ -223,6 +229,13 @@ export default {
     height: 0.3rem;
     top: 0.04rem;
 }
+
+.leaf-l-01{
+    left: 0.01rem;
+    bottom: -0.15rem;
+}
+
+
 </style>
 
 

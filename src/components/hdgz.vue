@@ -74,6 +74,10 @@
                 </div>
             <img src="../assets/images/close.png" alt="" class="close-btn" @click="hideHdgz">
             <img src="../assets/images/xlr.png" alt="" class="xlr-icon">
+            <!-- 左树叶 -->
+            <img src="../assets/images/leaf-l.png" alt="" class="leaf-icon leaf-l">
+            <!-- 右树叶 -->
+            <img src="../assets/images/leaf-r.png" alt="" class="leaf-icon leaf-r">
         </div>
     </div>
 </template>
@@ -92,10 +96,13 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
+.mask{
+    z-index: 6;
+}
 .hdgz-box{
     text-align: center;
-    padding: 0.2rem 0.2rem 0 0.2rem;
+    padding: 0.2rem 0.1rem 0 0.1rem;
     font-size: 0;
     z-index: 7;
 }
@@ -125,7 +132,10 @@ export default {
 .close-btn{
     width: 1.55rem;
 }
-
+.leaf-l{
+    left: -0.1rem;
+    bottom: -0.1rem;
+}
 </style>
 
 

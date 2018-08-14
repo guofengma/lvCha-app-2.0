@@ -4,6 +4,10 @@
         <div class="mask" @click="closewallpaperModal"></div>
         <div class="modal-box">
           <img src="../assets/images/xlr.png" alt="" class="xlr-icon">
+          <!-- 左树叶 -->
+            <img src="../assets/images/leaf-l.png" alt="" class="leaf-icon leaf-l">
+            <!-- 右树叶 -->
+            <img src="../assets/images/leaf-r.png" alt="" class="leaf-icon leaf-r">
           <!--<img src="../assets/images/bizhi.png" alt="" class="wallpaper-img">-->
           <img :src="wallpaperSrc" alt="" class="wallpaper-img">
           <!-- <div class="close-wallpaperModal-btn">X</div> -->
@@ -41,18 +45,18 @@ export default {
 </script>
 <style scoped>
 .modal-box{
-    font-size: 12px;
-    width: 2.95rem;
-    box-sizing: border-box;
-    position: fixed;
-    left: 0.4rem;
-    top: 0.9rem;
-    background: #69B603;
-    background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#69B603), to(#A1ED40), color-stop(0.0,#336600));
+    /* font-size: 12px; */
+    /* width: 2.95rem; */
+    /* box-sizing: border-box; */
+    /* position: fixed; */
+    /* left: 0.4rem; */
+    /* top: 0.9rem; */
+    /* background: #69B603; */
+    /* background: -webkit-gradient(linear,0% 0%, 0% 100%, from(#69B603), to(#A1ED40), color-stop(0.0,#336600)); */
     /* height: 1rem; */
-    border: 0.02rem solid #f2f1b4;
-    border-radius: 0.1rem;
-    padding: 0.2rem;
+    /* border: 0.02rem solid #f2f1b4; */
+    /* border-radius: 0.1rem; */
+    /* padding: 0.2rem; */
 }
 
 /* 壁纸 */
@@ -77,6 +81,10 @@ export default {
     /* margin-bottom: -0.1rem; */
     position: relative;
     transform: translateY(0.1rem)
+}
+.leaf-l{
+    left: -0.1rem;
+    bottom: -0;
 }
 </style>
 

@@ -11,7 +11,7 @@
         <div class="lottery-box">
           <!-- 小绿人 -->
             <img src="../assets/images/xlr-02.png" alt="" class="lottery-xlr">
-            <img src="../assets/images/pan.png" alt="" class="pan" v-bind:class="{xz:isDraw}">
+            <img src="../assets/images/pan.png" alt="" class="pan" v-bind:class="[isDraw?rotate:'init']">
             <img src="../assets/images/zhen.png" 
             alt="" 
             class="point"
@@ -38,6 +38,7 @@
     </div>
 </template>
 <script>
+// var wx = require('weixin-js-sdk');
 import lvChaMenu from "./lvChaMenu";
 import hdgz from "./hdgz";
 import lotteryModal from "./lotteryModal";
@@ -76,8 +77,11 @@ export default {
         type: "txdm",
         context: ""
       },
-      isDraw: false
+      isDraw: false,
+      rotate:'init',
     };
+  },
+  mounted(){
   },
   computed: {
     //获取活动规则状态
@@ -130,6 +134,7 @@ export default {
     // 关闭抽奖弹框
     closelotteryModal() {
       this.showlotteryModal = false;
+      this.isDraw = false;
     },
     //抽奖
     lottery() {
@@ -163,29 +168,53 @@ export default {
             //
             let type = response.data.goodInfo.bak3;
             if (type == "HLZ") {
-            this.modalInfo = {
-                type: "hlz",
-                context: response.data.goodInfo.prizeName.replace(/[^\d.]/g,'')
-            };
+              var context = response.data.goodInfo.prizeName.replace(/[^\d.]/g,'')
+              this.modalInfo = {
+                  type: "hlz",
+                  context: context
+              };
+              if(context == 50){
+                this.rotate = 'hlz50'
+              }
+              if(context == 100){
+                this.rotate = 'hlz100'
+              }
+              if(context == 200){
+                this.rotate = 'hlz200'
+              }
+              if(context == 300){
+                this.rotate = 'hlz300'
+              }
             }
             if (type == "WXHB") {
-            this.modalInfo = {
-                type: "wx",
-                context: response.data.goodInfo.prizeName.replace(/[^\d.]/g,'')
-            };
+              var context = response.data.goodInfo.prizeName.replace(/[^\d.]/g,'')
+              this.modalInfo = {
+                  type: "wx",
+                  context: context
+              };
+              if(context == 0.3){
+                this.rotate = 'wx3'
+              }
+              if(context == 0.68){
+                this.rotate = 'wx68'
+              }
+              if(context == 8.8){
+                this.rotate = 'wx88'
+              }
             }
             if (type == "TXCDK") {
-            this.modalInfo = {
-                type: "txdm",
-                context: ""
-            };
+              this.modalInfo = {
+                  type: "txdm",
+                  context: ""
+              };
+              this.rotate = 'txdm'
             }
             setTimeout(()=>{
                 this.showlotteryModal = true;
-            },4000)
+            },5000)
             setTimeout(()=>{
-                this.isDraw = false;
-            },4500)
+                // this.isDraw = false;
+            },4000)
         } else {
             this.isDraw = false;
             // alert(response.data.info);
@@ -199,6 +228,9 @@ export default {
         .catch(response => {
         console.log("抽奖请求失败 -->", response);
         });
+    },
+    setIsDraw(){
+      this.isDraw = false;
     }
   }
 };
@@ -248,6 +280,52 @@ export default {
   animation: myfirst 5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
+}
+
+.init{
+  transform: rotate(0deg);
+}
+
+/* 8.8元 */
+.wx88{
+  transform: rotate(1080deg);
+  transition: all 5s;
+}
+/* 0.68元 */
+.wx68{
+  transform: rotate(1170deg);
+  transition: all 5s;
+}
+/* 0.3元 */
+.wx3{
+  transform: rotate(990deg);
+  transition: all 5s;
+}
+
+/* 活力值200 */
+.hlz200{
+  transform: rotate(1125deg);
+  transition: all 5s;
+}
+/* 活力值50 */
+.hlz50{
+  transform: rotate(1035deg);
+  transition: all 5s;
+}
+/* 活力值100 */
+.hlz100{
+  transform: rotate(945deg);
+  transition: all 5s;
+}
+/* 活力值300 */
+.hlz300{
+  transform: rotate(1215deg);
+  transition: all 5s;
+}
+/* 腾讯动漫 */
+.txdm{
+  transform: rotate(1260deg);
+  transition: all 5s;
 }
 
 @keyframes myfirst {
